@@ -1,0 +1,29 @@
+.checkbox {
+    display: flex;
+    align-items: center;
+}
+
+.checkbox input[type="checkbox"] {
+    width: 0;
+    opacity: 0;
+}
+
+.checkbox .checkbox-icon {
+    width: 2rem;
+    height: 2rem;
+
+    margin-right: 1rem;
+
+    border: .2rem solid var(--color-border);
+    -webkit-border-radius: .3rem;
+    -moz-border-radius: .3rem;
+    border-radius: .3rem;
+
+    transition: background-color var(--transition-base), border-color var(--transition-base);
+}
+
+.checkbox input[type="checkbox"]:checked ~ .checkbox-icon {
+    background-color: var(--color-primary);
+
+    border-color: var(--color-primary);
+}

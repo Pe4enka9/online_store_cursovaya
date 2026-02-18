@@ -1,0 +1,21 @@
+:root {
+    --color-primary: #7731a3;
+    --color-primary-hover: #632988;
+    --color-secondary: #cfa419;
+    --color-secondary-hover: #a38114;
+    --color-background: #222;
+    --color-background-secondary: #1c1c1c;
+    --color-text: #fff;
+    --color-text-secondary: #000;
+    --color-border: #7a7a7a;
+    --color-danger: #e64949;
+    --color-danger-hover: #b13737;
+    --color-shadow: #000;
+    --width: 80%;
+    --border-radius: .8rem;
+    --font-size-base: 1.6rem;
+    --font-weight-base: 400;
+    --font-weight-medium: 500;
+    --transition-base: .3s ease;
+    --transition-medium: .7s ease;
+}
