@@ -3,17 +3,41 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Support\Collection;
 
 /**
  * @property int $id
  * @property string $name
- * @property string $description
+ * @property string|null $description
+ * @property string|null $short_description
  * @property float $price
+ * @property float|null $old_price
+ * @property int $stock_quantity
+ * @property string $sku
+ * @property int $publisher_id
+ * @property int|null $players_min
+ * @property int|null $players_max
+ * @property int|null $play_time
+ * @property int $age_rating
+ * @property boolean $is_new
+ * @property boolean $is_bestseller
  * @property string|null $image
  * @property string $slug
- * @property int $category_id
+ *
+ * @property-read Collection<Category> $categories
  */
 class Product extends Model
 {
     protected $guarded = ['id'];
+
+    protected $casts = [
+        'is_new' => 'boolean',
+        'is_bestseller' => 'boolean',
+    ];
+
+    public function categories(): BelongsToMany
+    {
+        return $this->belongsToMany(Category::class);
+    }
 }
