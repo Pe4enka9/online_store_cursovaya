@@ -14,8 +14,10 @@
     --width: 80%;
     --border-radius: .8rem;
     --font-size-base: 1.6rem;
+    --font-size-large: 1.8rem;
     --font-weight-base: 400;
     --font-weight-medium: 500;
+    --font-weight-bold: 700;
     --transition-base: .3s ease;
     --transition-medium: .7s ease;
 }
