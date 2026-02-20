@@ -1,6 +1,6 @@
-<header class="header">
-    <div class="header__wrapper">
+<footer class="footer">
+    <div class="footer__wrapper">
         @include('layouts.logo')
         @include('layouts.nav')
     </div>
-</header>
+</footer>
