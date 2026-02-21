@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -49,9 +50,13 @@ class Product extends Model
         return $this->belongsTo(Publisher::class);
     }
 
-    public function getImageUrlAttribute(): string
+    protected function imageUrl(): Attribute
     {
-        return Storage::disk('public')->url($this->image);
+        return Attribute::get(function () {
+            return $this->image
+                ? Storage::disk('public')->url($this->image)
+                : asset('images/no-image.png');
+        });
     }
 
     public function getRouteKeyName(): string

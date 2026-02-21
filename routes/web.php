@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminCategoryController;
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AdminProductController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
@@ -31,7 +32,8 @@ Route::middleware('auth')->group(function () {
 // Админ
 Route::middleware(['auth', AdminMiddleware::class])->group(function () {
     Route::prefix('admin')->name('admin.')->group(function () {
-        Route::resource('/categories', AdminCategoryController::class, ['categories' => 'slug']);
-        Route::resource('/products', AdminProductController::class, ['products' => 'slug']);
+        Route::get('/', [AdminController::class, 'index'])->name('index');
+        Route::resource('/categories', AdminCategoryController::class);
+        Route::resource('/products', AdminProductController::class);
     });
 });

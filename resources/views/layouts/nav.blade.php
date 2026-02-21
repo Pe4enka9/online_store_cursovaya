@@ -21,6 +21,15 @@
             Главная
         </a>
 
+        @if(auth()->user()->is_admin)
+            <a
+                href="{{ route('admin.index') }}"
+                class="{{ request()->routeIs('admin.index') ? 'active' : '' }}"
+            >
+                Админ-панель
+            </a>
+        @endif
+
         <form action="{{ route('logout') }}" method="post">
             @csrf
             <button type="submit" class="btn btn--danger">Выйти</button>

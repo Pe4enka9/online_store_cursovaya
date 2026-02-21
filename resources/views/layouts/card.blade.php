@@ -1,7 +1,7 @@
 <div class="card">
     <div class="card__img-wrapper">
         <img
-            src="{{ $product->image_url ?? asset('images/no-image.png') }}"
+            src="{{ $product->image_url }}"
             alt="{{ $product->name }}"
             class="image image--contain"
         >

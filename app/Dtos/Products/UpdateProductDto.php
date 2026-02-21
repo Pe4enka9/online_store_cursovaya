@@ -17,17 +17,20 @@ use Spatie\LaravelData\Attributes\Validation\Unique;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Mappers\SnakeCaseMapper;
 use Spatie\LaravelData\Support\Validation\References\FieldReference;
+use Spatie\LaravelData\Support\Validation\References\RouteParameterReference;
 
 #[MapName(SnakeCaseMapper::class)]
-class CreateProductDto extends Data
+class UpdateProductDto extends Data
 {
     public function __construct(
-        #[Max(50), Unique(Product::class)]
+        #[Max(50), Unique(Product::class, ignore: new RouteParameterReference('product', 'id'))]
         public string        $name,
         public ?string       $description,
         public ?string       $shortDescription,
         #[Min(0)]
         public float         $price,
+        #[Min(0), GreaterThan(new FieldReference('price'))]
+        public ?float        $oldPrice,
         #[Min(0)]
         public ?int          $stockQuantity,
         #[Image, Mimes('jpg', 'jpeg', 'png'), Max(2048)]

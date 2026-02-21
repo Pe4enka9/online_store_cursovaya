@@ -18,7 +18,7 @@
 }
 
 .form.form--column {
-    width: 50%;
+    width: auto;
 }
 
 .form .form__row {

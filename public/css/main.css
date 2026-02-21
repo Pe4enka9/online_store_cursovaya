@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=SN+Pro:wght@200..900&display=swap');
 @import "_variables.css";
 @import "_form.css";
 @import "_btn.css";
@@ -18,7 +19,7 @@
 
     color: var(--color-text);
 
-    font: 10px "Roboto", sans-serif;
+    font: 10px "SN Pro", sans-serif;
 }
 
 body {
