@@ -9,6 +9,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  * @property string $phone
  * @property string $name
  * @property string $password
+ * @property boolean $is_admin
  */
 class User extends Authenticatable
 {
@@ -21,5 +22,6 @@ class User extends Authenticatable
 
     protected $casts = [
         'password' => 'hashed',
+        'is_admin' => 'boolean',
     ];
 }

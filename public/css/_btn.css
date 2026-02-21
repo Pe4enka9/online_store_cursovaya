@@ -1,5 +1,9 @@
 .btn {
+    width: 100%;
+
     padding: .8em;
+
+    display: block;
 
     color: var(--color-text-secondary);
 
@@ -13,7 +17,16 @@
     font-weight: var(--font-weight-medium);
 
     cursor: pointer;
+    text-align: center;
     transition: background-color var(--transition-base);
+}
+
+.btn.btn--small {
+    font-size: var(--font-size-small);
+}
+
+.btn.btn--fit-content {
+    width: fit-content;
 }
 
 .btn.btn--primary {

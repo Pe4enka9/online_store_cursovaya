@@ -2,8 +2,10 @@
 
 namespace Database\Seeders;
 
+use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -11,6 +13,13 @@ class DatabaseSeeder extends Seeder
 
     public function run(): void
     {
+        User::query()->create([
+            'phone' => '+7 (901) 600-83-38',
+            'name' => 'Иван',
+            'password' => Hash::make('12345678!'),
+            'is_admin' => true,
+        ]);
+
         $this->call([
             CategorySeeder::class,
             PublisherSeeder::class,

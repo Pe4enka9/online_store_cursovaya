@@ -1,0 +1,16 @@
+.table {
+    border-collapse: collapse;
+}
+
+.table td, .table th {
+    padding: .5em;
+
+    border: .2rem solid var(--color-border);
+
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-base);
+}
+
+.table th {
+    font-weight: var(--font-weight-bold);
+}

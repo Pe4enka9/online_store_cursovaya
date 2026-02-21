@@ -13,6 +13,7 @@ return new class extends Migration
             $table->string('phone')->unique();
             $table->string('name');
             $table->string('password');
+            $table->boolean('is_admin')->default(false);
             $table->rememberToken();
             $table->timestamps();
         });

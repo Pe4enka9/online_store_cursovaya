@@ -1,7 +1,7 @@
 <div class="card">
     <div class="card__img-wrapper">
         <img
-            src="{{ $product->image_url ?? asset('images/no-image.png') }}"
+            src="{{ $product->image ?? asset('images/no-image.png') }}"
             alt="{{ $product->name }}"
             class="image image--contain"
         >
@@ -24,6 +24,13 @@
             @endisset
         </div>
 
-        <button type="button" class="btn btn--primary">В корзину</button>
+        <div class="buttons">
+            <a href="{{ route('admin.products.edit', $product) }}" class="btn btn--primary">Изменить</a>
+            <form action="{{ route('admin.products.destroy', $product) }}" method="post">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn btn--danger">Удалить</button>
+            </form>
+        </div>
     </div>
 </div>

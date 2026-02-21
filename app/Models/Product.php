@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Storage;
 
 /**
  * @property int $id
@@ -46,5 +47,15 @@ class Product extends Model
     public function publisher(): BelongsTo
     {
         return $this->belongsTo(Publisher::class);
+    }
+
+    public function getImageUrlAttribute(): string
+    {
+        return Storage::disk('public')->url($this->image);
+    }
+
+    public function getRouteKeyName(): string
+    {
+        return 'slug';
     }
 }
