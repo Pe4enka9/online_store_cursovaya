@@ -24,6 +24,9 @@
             @endisset
         </div>
 
-        <button type="button" class="btn btn--primary">В корзину</button>
+        <form action="{{ route('carts.add', $product) }}" method="post">
+            @csrf
+            <button type="submit" class="btn btn--primary">В корзину</button>
+        </form>
     </div>
 </div>
