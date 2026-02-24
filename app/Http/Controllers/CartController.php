@@ -18,20 +18,23 @@ class CartController extends Controller
 
     public function show(Cart $cart): View
     {
-        return view('carts.show', ['cart' => $cart]);
+        return view('carts.show', [
+            'cart' => $cart,
+            'cartService' => $this->cartService,
+        ]);
     }
 
     public function add(Product $product): RedirectResponse
     {
         $this->cartService->addProduct($product);
 
-        return redirect()->route('home');
+        return redirect()->back();
     }
 
     public function subtract(Product $product): RedirectResponse
     {
         $this->cartService->subtractProduct($product);
 
-        return redirect()->route('home');
+        return redirect()->back();
     }
 }
