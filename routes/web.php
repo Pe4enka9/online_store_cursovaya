@@ -33,6 +33,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/carts/{cart}', [CartController::class, 'show'])->name('carts.show');
     Route::post('/carts/{product}/add', [CartController::class, 'add'])->name('carts.add');
+    Route::post('/carts/{product}/subtract', [CartController::class, 'subtract'])->name('carts.subtract');
 });
 
 // Админ

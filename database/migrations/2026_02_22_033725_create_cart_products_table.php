@@ -10,7 +10,7 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('cart_product', function (Blueprint $table) {
+        Schema::create('cart_products', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(Cart::class)->constrained()->onDelete('cascade');
             $table->foreignIdFor(Product::class)->constrained()->onDelete('cascade');
@@ -21,6 +21,6 @@ return new class extends Migration
 
     public function down(): void
     {
-        Schema::dropIfExists('cart_product');
+        Schema::dropIfExists('cart_products');
     }
 };

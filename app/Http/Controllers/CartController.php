@@ -4,11 +4,18 @@ namespace App\Http\Controllers;
 
 use App\Models\Cart;
 use App\Models\Product;
+use App\Services\Carts\CartService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 
 class CartController extends Controller
 {
+    public function __construct(
+        private CartService $cartService,
+    )
+    {
+    }
+
     public function show(Cart $cart): View
     {
         return view('carts.show', ['cart' => $cart]);
@@ -16,8 +23,14 @@ class CartController extends Controller
 
     public function add(Product $product): RedirectResponse
     {
-        $cart = auth()->user()->cart;
-        $cart->products()->attach($product->id);
+        $this->cartService->addProduct($product);
+
+        return redirect()->route('home');
+    }
+
+    public function subtract(Product $product): RedirectResponse
+    {
+        $this->cartService->subtractProduct($product);
 
         return redirect()->route('home');
     }

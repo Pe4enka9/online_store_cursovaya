@@ -24,9 +24,25 @@
             @endisset
         </div>
 
-        <form action="{{ route('carts.add', $product) }}" method="post">
-            @csrf
-            <button type="submit" class="btn btn--primary">В корзину</button>
-        </form>
+        @if(is_null($cartService->getProductQuantity($product)))
+            <form action="{{ route('carts.add', $product) }}" method="post">
+                @csrf
+                <button type="submit" class="btn btn--primary">В корзину</button>
+            </form>
+        @else
+            <div class="buttons">
+                <form action="{{ route('carts.subtract', $product) }}" method="post">
+                    @csrf
+                    <button type="submit" class="btn btn--danger">-</button>
+                </form>
+
+                <span class="text text--center">{{ $cartService->getProductQuantity($product) }}</span>
+
+                <form action="{{ route('carts.add', $product) }}" method="post">
+                    @csrf
+                    <button type="submit" class="btn btn--primary">+</button>
+                </form>
+            </div>
+        @endif
     </div>
 </div>
