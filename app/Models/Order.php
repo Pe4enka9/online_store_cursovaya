@@ -7,11 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * @property int $id
  * @property int $cart_id
- * @property int $product_id
- * @property int $quantity
- * @property float|null $price
+ * @property float $total_price
+ * @property string $status
  */
-class CartProduct extends Model
+class Order extends Model
 {
     protected $guarded = ['id'];
 }

@@ -64,6 +64,10 @@ p, .text {
     line-height: 2.8rem;
 }
 
+.text--large {
+    font-size: var(--font-size-large);
+}
+
 .text--center {
     text-align: center;
 }

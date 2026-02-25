@@ -59,7 +59,33 @@
                 </div>
             </div>
 
-            <button type="button" class="btn btn--primary product-show__btn">В корзину</button>
+            @auth
+                @if(is_null($cartService->getProductQuantity($product)))
+                    <form action="{{ route('carts.add', $product) }}" method="post" class="product-show__btn">
+                        @csrf
+                        <button type="submit" class="btn btn--primary">В корзину</button>
+                    </form>
+                @else
+                    <div class="buttons product-show__btn">
+                        <form action="{{ route('carts.subtract', $product) }}" method="post">
+                            @csrf
+                            <button type="submit" class="btn btn--danger">-</button>
+                        </form>
+
+                        <span class="text text--center">{{ $cartService->getProductQuantity($product) }}</span>
+
+                        <form action="{{ route('carts.add', $product) }}" method="post">
+                            @csrf
+                            <button type="submit" class="btn btn--primary">+</button>
+                        </form>
+                    </div>
+                @endif
+            @else
+                <form action="{{ route('carts.add', $product) }}" method="post" class="product-show__btn">
+                    @csrf
+                    <button type="submit" class="btn btn--primary">В корзину</button>
+                </form>
+            @endauth
         </div>
     </div>
 @endsection

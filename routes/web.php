@@ -8,12 +8,14 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Middleware\AdminMiddleware;
 use Illuminate\Support\Facades\Route;
 
 // Общее
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/products/{product:slug}', [ProductController::class, 'show'])->name('products.show');
 
 // Неавторизованный пользователь
 Route::middleware('guest')->group(function () {
@@ -28,12 +30,13 @@ Route::middleware('guest')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
-    Route::get('/products/{product:slug}', [ProductController::class, 'show'])->name('products.show');
     Route::get('/categories/{category:slug}/products', [CategoryController::class, 'products'])->name('categories.products');
 
     Route::get('/carts/{cart}', [CartController::class, 'show'])->name('carts.show');
     Route::post('/carts/{product}/add', [CartController::class, 'add'])->name('carts.add');
     Route::post('/carts/{product}/subtract', [CartController::class, 'subtract'])->name('carts.subtract');
+
+    Route::post('/orders', [OrderController::class, 'store'])->name('orders.store');
 });
 
 // Админ

@@ -61,7 +61,7 @@ class CartService
     {
         $cartProduct = $this->findProduct($product);
 
-        if ($this->getProductQuantity($product) <= 1) {
+        if ($cartProduct->quantity <= 1) {
             $cartProduct->delete();
         } else {
             $cartProduct->decrement('quantity');

@@ -18,7 +18,7 @@ class LoginController extends Controller
 
     public function login(
         LoginDto $dto,
-        Request $request,
+        Request  $request,
     ): RedirectResponse
     {
         if (
@@ -30,13 +30,13 @@ class LoginController extends Controller
             return back()->withInput()->withErrors(['auth' => 'Неверный логин или пароль.']);
         }
 
-        return redirect()->route('home');
+        return redirect()->intended(route('home'));
     }
 
     public function logout(): RedirectResponse
     {
         Auth::logout();
 
-        return redirect()->route('login');
+        return redirect()->back();
     }
 }
