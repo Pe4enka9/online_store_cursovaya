@@ -36,6 +36,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/carts/{product}/add', [CartController::class, 'add'])->name('carts.add');
     Route::post('/carts/{product}/subtract', [CartController::class, 'subtract'])->name('carts.subtract');
 
+    Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
     Route::post('/orders', [OrderController::class, 'store'])->name('orders.store');
 });
 

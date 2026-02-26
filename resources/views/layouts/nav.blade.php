@@ -9,7 +9,7 @@
 
         <a
             href="{{ route('carts.show', auth()->user()->cart) }}"
-            class="{{ request()->routeIs('carts.show') ? 'active' : '' }}"
+            class="{{ request()->routeIs(['carts.show', 'orders.*']) ? 'active' : '' }}"
         >
             Корзина
         </a>

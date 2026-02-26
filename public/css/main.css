@@ -82,6 +82,26 @@ p, .text {
     grid-gap: 4rem;
 }
 
+.flex {
+    display: flex;
+}
+
+.flex.ai-center {
+    align-items: center;
+}
+
+.flex.jc-sb {
+    justify-content: space-between;
+}
+
+.flex.fd-column {
+    flex-direction: column;
+}
+
+.flex.gap-2 {
+    gap: 2rem;
+}
+
 .prices {
     display: flex;
     align-items: center;

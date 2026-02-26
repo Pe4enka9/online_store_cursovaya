@@ -16,6 +16,7 @@ use Illuminate\Support\Collection;
  *
  * @property-read Collection<Cart> $carts
  * @property-read Cart $cart
+ * @property-read Collection<Order> $orders
  */
 class User extends Authenticatable
 {
@@ -39,5 +40,10 @@ class User extends Authenticatable
     public function cart(): HasOne
     {
         return $this->hasOne(Cart::class)->where('is_open', true);
+    }
+
+    public function orders(): HasMany
+    {
+        return $this->hasMany(Order::class);
     }
 }
