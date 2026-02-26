@@ -3,8 +3,8 @@
 namespace App\Services\Carts;
 
 use App\Models\Cart;
-use App\Models\CartProduct;
 use App\Models\Product;
+use Illuminate\Support\Collection;
 
 class CartService
 {
@@ -15,44 +15,36 @@ class CartService
     }
 
     // Найти товар в текущей корзине
-    private function findProduct(Product $product): ?CartProduct
+    private function findProduct(Product $product): ?Product
     {
-        $cart = $this->getCart();
-
-        return CartProduct::query()
-            ->where('cart_id', $cart->id)
-            ->where('product_id', $product->id)
-            ->first();
+        return $this->getCart()
+            ->products()
+            ->find($product->id);
     }
 
     // Создать товар в текущей корзине
-    private function createProduct(
-        Cart    $cart,
-        Product $product,
-    ): void
+    public function createProduct(Product $product): void
     {
-        CartProduct::query()->create([
-            'cart_id' => $cart->id,
-            'product_id' => $product->id,
-        ]);
+        $this->getCart()->products()->attach($product->id);
     }
 
-    // Получение количества товара в корзине
-    public function getProductQuantity(Product $product): ?int
+    // Получение товаров текущей корзины
+    public function getCartItems(): Collection
     {
-        return $this->findProduct($product)?->quantity;
+        if (!auth()->check()) return collect();
+
+        return $this->getCart()->products->keyBy('id') ?? collect();
     }
 
     // Добавление товара в корзину
     public function addProduct(Product $product): void
     {
-        $cart = $this->getCart();
         $cartProduct = $this->findProduct($product);
 
         if (!$cartProduct) {
-            $this->createProduct($cart, $product);
+            $this->createProduct($product);
         } else {
-            $cartProduct->increment('quantity');
+            $cartProduct->pivot->increment('quantity');
         }
     }
 
@@ -61,10 +53,10 @@ class CartService
     {
         $cartProduct = $this->findProduct($product);
 
-        if ($cartProduct->quantity <= 1) {
-            $cartProduct->delete();
+        if ($cartProduct->pivot->quantity <= 1) {
+            $this->getCart()->products()->detach($cartProduct->id);
         } else {
-            $cartProduct->decrement('quantity');
+            $cartProduct->pivot->decrement('quantity');
         }
     }
 }

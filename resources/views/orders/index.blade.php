@@ -5,7 +5,7 @@
 
     <div class="flex fd-column gap-2">
         @forelse($orders as $order)
-            <span class="price">{{ $order->total_price }} руб.</span>
+            @include('layouts.orders.order-card')
         @empty
             <h4>Пока нет заказов</h4>
         @endforelse

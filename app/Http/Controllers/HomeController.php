@@ -20,7 +20,7 @@ class HomeController extends Controller
 
         return view('home', [
             'products' => $products,
-            'cartService' => $this->cartService,
+            'cartItems' => $this->cartService->getCartItems(),
         ]);
     }
 }

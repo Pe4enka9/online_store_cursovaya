@@ -39,7 +39,7 @@ class User extends Authenticatable
 
     public function cart(): HasOne
     {
-        return $this->hasOne(Cart::class)->where('is_open', true);
+        return $this->hasOne(Cart::class)->where('is_active', true);
     }
 
     public function orders(): HasMany

@@ -20,7 +20,7 @@ class CartController extends Controller
     {
         return view('carts.show', [
             'cart' => $cart,
-            'cartService' => $this->cartService,
+            'cartItems' => $this->cartService->getCartItems(),
         ]);
     }
 

@@ -12,7 +12,7 @@ return new class extends Migration
         Schema::create('carts', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(User::class)->constrained()->onDelete('cascade');
-            $table->boolean('is_open')->default(true);
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
         });
     }

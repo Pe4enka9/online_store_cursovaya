@@ -9,6 +9,8 @@
 @import "_product-show.css";
 @import "_logo.css";
 @import "_table.css";
+@import "_order-card.css";
+@import "_product-card.css";
 
 * {
     margin: 0;
@@ -96,6 +98,10 @@ p, .text {
 
 .flex.fd-column {
     flex-direction: column;
+}
+
+.flex.gap-1 {
+    gap: 1rem;
 }
 
 .flex.gap-2 {

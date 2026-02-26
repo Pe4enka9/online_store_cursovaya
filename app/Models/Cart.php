@@ -10,7 +10,7 @@ use Illuminate\Support\Collection;
 /**
  * @property int $id
  * @property int $user_id
- * @property boolean $is_open
+ * @property boolean $is_active
  *
  * @property-read Collection<Product> $products
  * @property-read Order $order
@@ -20,13 +20,13 @@ class Cart extends Model
     protected $guarded = ['id'];
 
     protected $casts = [
-        'is_open' => 'boolean',
+        'is_active' => 'boolean',
     ];
 
     public function products(): BelongsToMany
     {
         return $this->belongsToMany(Product::class, 'cart_products')
-            ->withPivot('quantity');
+            ->withPivot(['quantity', 'price']);
     }
 
     public function order(): HasOne
@@ -34,7 +34,7 @@ class Cart extends Model
         return $this->hasOne(Order::class);
     }
 
-    public function totalPrice(): float
+    public function getTotalPrice(): float
     {
         return $this->products->sum(function (Product $product) {
             return $product->price * $product->pivot->quantity;

@@ -7,7 +7,7 @@
     @if($cart->products->isNotEmpty())
         <div class="mb-2 flex ai-center jc-sb">
             <div class="text text--large">
-                Итого: <span class="price">{{ number_format($cart->totalPrice(), 2, ',', ' ') }} руб.</span>
+                Итого: <span class="price">@price($cart->getTotalPrice()) руб.</span>
             </div>
 
             <form action="{{ route('orders.store') }}" method="post">
