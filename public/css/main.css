@@ -74,6 +74,10 @@ p, .text {
     text-align: center;
 }
 
+.text--bold {
+    font-weight: var(--font-weight-bold);
+}
+
 .error {
     color: var(--color-danger);
 }

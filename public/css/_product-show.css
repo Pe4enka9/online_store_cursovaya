@@ -10,7 +10,7 @@
     -moz-border-radius: var(--border-radius);
     border-radius: var(--border-radius);
 
-    box-shadow: 0 0 1rem var(--color-shadow);
+    box-shadow: 0 0 2rem var(--color-shadow);
 }
 
 .product-show .product-show__img-wrapper {

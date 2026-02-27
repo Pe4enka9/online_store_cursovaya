@@ -6,12 +6,13 @@
     --color-secondary-hover: #4a146c;
     --color-background: #e3f2fb;
     --color-background-secondary: #fff;
+    --color-background-card: #f1e5fa;
     --color-text: #000;
     --color-text-secondary: #fff;
     --color-border: #c3c2c2;
     --color-danger: #e64949;
     --color-danger-hover: #b13737;
-    --color-shadow: #787878;
+    --color-shadow: #a5a5a5;
     --color-gray: #636363;
     --width: 80%;
     --border-radius: .9rem;

@@ -4,12 +4,13 @@ namespace App\Services\Carts;
 
 use App\Models\Cart;
 use App\Models\Product;
+use App\Models\User;
 use Illuminate\Support\Collection;
 
 class CartService
 {
     // Получить текущую корзину
-    private function getCart(): Cart
+    public function getCart(): Cart
     {
         return auth()->user()->cart;
     }
@@ -58,5 +59,23 @@ class CartService
         } else {
             $cartProduct->pivot->decrement('quantity');
         }
+    }
+
+    // Установка цены товара после заказа
+    public function setProductsPrice(Cart $cart): void
+    {
+        foreach ($cart->products as $product) {
+            $cart->products()->updateExistingPivot($product->id, ['price' => $product->price]);
+        }
+    }
+
+    // Закрыть корзину
+    public function closeCart(
+        Cart $cart,
+        User $user,
+    ): void
+    {
+        $cart->update(['is_active' => false]);
+        $user->carts()->create();
     }
 }

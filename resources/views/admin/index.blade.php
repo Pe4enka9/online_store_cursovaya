@@ -6,5 +6,6 @@
     <div class="buttons">
         <a href="{{ route('admin.categories.index') }}" class="btn btn--primary">Категории</a>
         <a href="{{ route('admin.products.index') }}" class="btn btn--primary">Товары</a>
+        <a href="{{ route('admin.orders.index') }}" class="btn btn--primary">Заказы</a>
     </div>
 @endsection

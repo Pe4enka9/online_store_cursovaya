@@ -1,9 +1,11 @@
 .order-card {
+    padding: 2rem;
+
     display: flex;
     flex-direction: column;
     gap: 2rem;
 
-    padding: 2rem;
+    background-color: var(--color-background-card);
 
     border: .2rem solid var(--color-border);
     -webkit-border-radius: var(--border-radius);

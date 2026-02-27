@@ -18,7 +18,7 @@ class ProductController extends Controller
     {
         return view('products.show', [
             'product' => $product,
-            'cartService' => $this->cartService,
+            'cartItems' => $this->cartService->getCartItems(),
         ]);
     }
 }

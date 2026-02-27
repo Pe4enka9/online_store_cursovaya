@@ -18,5 +18,9 @@
 
         <span class="price">{{ number_format($product->pivot->price, 2, ',', ' ') }} руб.</span>
     </div>
+
+    <div class="product-card__quantity text text--large text--bold">
+        {{ $product->pivot->quantity }}
+    </div>
 </div>
 

@@ -59,33 +59,27 @@
                 </div>
             </div>
 
-            @auth
-                @if(is_null($cartService->getProductQuantity($product)))
-                    <form action="{{ route('carts.add', $product) }}" method="post" class="product-show__btn">
+            @if($cartItems->has($product->id))
+                @php($cartItem = $cartItems[$product->id])
+                <div class="buttons product-show__btn">
+                    <form action="{{ route('carts.subtract', $product) }}" method="post">
                         @csrf
-                        <button type="submit" class="btn btn--primary">В корзину</button>
+                        <button type="submit" class="btn btn--danger">-</button>
                     </form>
-                @else
-                    <div class="buttons product-show__btn">
-                        <form action="{{ route('carts.subtract', $product) }}" method="post">
-                            @csrf
-                            <button type="submit" class="btn btn--danger">-</button>
-                        </form>
 
-                        <span class="text text--center">{{ $cartService->getProductQuantity($product) }}</span>
+                    <span class="text text--center">{{ $cartItem->pivot->quantity }}</span>
 
-                        <form action="{{ route('carts.add', $product) }}" method="post">
-                            @csrf
-                            <button type="submit" class="btn btn--primary">+</button>
-                        </form>
-                    </div>
-                @endif
+                    <form action="{{ route('carts.add', $product) }}" method="post">
+                        @csrf
+                        <button type="submit" class="btn btn--primary">+</button>
+                    </form>
+                </div>
             @else
                 <form action="{{ route('carts.add', $product) }}" method="post" class="product-show__btn">
                     @csrf
                     <button type="submit" class="btn btn--primary">В корзину</button>
                 </form>
-            @endauth
+            @endif
         </div>
     </div>
 @endsection
