@@ -20,7 +20,7 @@
     <div class="input-wrapper">
         <select name="age_rating" id="age_rating">
             <option value="">Выберите возрастную категорию</option>
-            <option value="0" @selected(request()->age_rating == 0)>0+</option>
+            <option value="0" @selected(request()->age_rating === '0')>0+</option>
             <option value="3" @selected(request()->age_rating == 3)>3+</option>
             <option value="6" @selected(request()->age_rating == 6)>6+</option>
             <option value="12" @selected(request()->age_rating == 12)>12+</option>
