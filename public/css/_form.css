@@ -48,6 +48,8 @@ label {
 }
 
 input, textarea, select {
+    width: 100%;
+
     padding: .8em;
 
     background-color: var(--color-background);
