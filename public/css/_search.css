@@ -1,0 +1,27 @@
+.search {
+    max-width: 60rem;
+
+    margin: 0 auto;
+}
+
+.search .search__input-wrapper {
+    position: relative;
+}
+
+.search .search__input-wrapper::before {
+    width: 1.6rem;
+    height: 1.6rem;
+
+    background: url("../icons/search.svg") no-repeat center / contain;
+
+    content: '';
+    transform: translateY(-50%);
+
+    position: absolute;
+    top: 50%;
+    left: 1.3rem;
+}
+
+.search .search__input {
+    padding-left: 2.8em;
+}

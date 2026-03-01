@@ -1,7 +1,4 @@
 <a href="{{ route('home') }}" class="logo">
-    <img
-        src="{{ asset('images/logo.png') }}"
-        alt="Логотип"
-        class="image image--contain"
-    >
+    <div class="logo__img">BG</div>
+    <span class="logo__title">Board Games</span>
 </a>

@@ -50,20 +50,21 @@ label {
 input, textarea, select {
     width: 100%;
 
-    padding: .8em;
+    padding: .6em .8em;
 
     background-color: var(--color-background);
 
     outline: none;
-    border: .2rem solid var(--color-border);
-    -webkit-border-radius: var(--border-radius);
-    -moz-border-radius: var(--border-radius);
-    border-radius: var(--border-radius);
+    border: .1rem solid var(--color-border);
+    -webkit-border-radius: var(--border-radius-small);
+    -moz-border-radius: var(--border-radius-small);
+    border-radius: var(--border-radius-small);
 
     font-size: var(--font-size-base);
-    font-weight: var(--font-weight-base);
+    font-weight: 400;
 
     transition: border-color var(--transition-base);
+    box-shadow: 0 .3rem .5rem rgba(0, 0, 0, .05);
 }
 
 textarea {

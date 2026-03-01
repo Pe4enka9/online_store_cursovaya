@@ -1,3 +1,32 @@
 .logo {
-    height: 10rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    font-size: 2rem;
+    font-weight: var(--font-weight-bold);
+}
+
+.logo .logo__img {
+    width: 4rem;
+    height: 4rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: var(--color-text-secondary);
+    background-color: var(--color-primary);
+
+    -webkit-border-radius: var(--border-radius);
+    -moz-border-radius: var(--border-radius);
+    border-radius: var(--border-radius);
+
+    font-size: inherit;
+    font-weight: inherit;
+}
+
+.logo .logo__title {
+    font-size: inherit;
+    font-weight: inherit;
 }

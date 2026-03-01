@@ -1,20 +1,28 @@
 .product-card {
     display: flex;
-    align-items: center;
-
-    background-color: var(--color-background-secondary);
+    flex-direction: column;
 
     -webkit-border-radius: var(--border-radius);
     -moz-border-radius: var(--border-radius);
     border-radius: var(--border-radius);
 
-    border: .2rem solid var(--color-border);
+    border: .1rem solid var(--color-border);
+
+    transition: box-shadow var(--transition-base);
 
     position: relative;
 }
 
+.product-card:hover {
+    box-shadow: 0 0 2rem rgba(0, 0, 0, .1);
+}
+
+.product-card:hover .image {
+    transform: scale(1.02);
+}
+
 .product-card .product-card__img-wrapper {
-    height: 15rem;
+    height: 30rem;
 
     border-top-left-radius: var(--border-radius);
     border-top-right-radius: var(--border-radius);
@@ -23,57 +31,48 @@
 }
 
 .product-card .product-card__content {
-    padding: 2rem;
+    padding: 4rem 2rem 2rem;
 
     display: flex;
     flex-direction: column;
-    gap: .5rem;
-    flex: 1;
+    gap: 1.5rem;
 }
 
 .product-card .product-card__title {
-    width: fit-content;
-
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
 }
 
 .product-card .product-card__link {
+    display: block;
+
     font-size: inherit;
     font-weight: inherit;
 
     transition: color var(--transition-base);
 }
 
-.product-card .product-card__title:hover .product-card__link {
-    color: var(--color-primary);
-}
-
-.product-card .product-card__short-description {
-    color: var(--color-gray);
-
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-}
-
-.product-card .product-card__quantity {
-    width: 3rem;
-    height: 3rem;
-
+.product-card .product-card__info {
     display: flex;
     align-items: center;
-    justify-content: center;
+    gap: 1rem;
+}
 
-    color: var(--color-text-secondary);
-    background-color: var(--color-secondary);
+.product-card .product-card__info-item {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
 
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    border-radius: 50%;
+.product-card .product-card__info-img {
+    width: 1.2rem;
+    height: 1.2rem;
+}
 
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
+.product-card .product-card__info-text {
+    color: var(--color-text-gray);
+
+    font-size: var(--font-size-small);
+    font-weight: 400;
 }

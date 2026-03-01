@@ -41,7 +41,7 @@
 }
 
 .product-show .product-show__category-item:hover {
-    color: var(--color-text);
+    color: var(--color-text-primary);
 }
 
 .product-show .product-show__category-item:hover::after {

@@ -4,13 +4,18 @@
 @import "_btn.css";
 @import "_nav.css";
 @import "_checkbox.css";
-@import "_card.css";
+@import "_product-card.css";
 @import "_footer.css";
 @import "_product-show.css";
 @import "_logo.css";
 @import "_table.css";
 @import "_order-card.css";
-@import "_product-card.css";
+/*@import "_product-card2.css";*/
+@import "_header.css";
+@import "_search.css";
+@import "_badges.css";
+@import "_sort.css";
+@import "_filter.css";
 
 * {
     margin: 0;
@@ -19,17 +24,13 @@
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 
-    color: var(--color-text);
+    color: var(--color-text-primary);
 
     font: 10px "SN Pro", sans-serif;
 }
 
 body {
     min-height: 100vh;
-
-    display: flex;
-    flex-direction: column;
-    gap: 4rem;
 
     background-color: var(--color-background);
 }
@@ -41,7 +42,7 @@ main {
 }
 
 h1 {
-    font-size: 3.2rem;
+    font-size: 3.6rem;
     font-weight: 700;
 }
 
@@ -51,7 +52,7 @@ h2 {
 }
 
 h3 {
-    font-size: 2.2rem;
+    font-size: var(--font-size-large);
     font-weight: 500;
 }
 
@@ -78,6 +79,10 @@ p, .text {
     font-weight: var(--font-weight-bold);
 }
 
+.text--gray {
+    color: var(--color-text-gray);
+}
+
 .error {
     color: var(--color-danger);
 }
@@ -85,7 +90,7 @@ p, .text {
 .grid-wrapper {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
-    grid-gap: 4rem;
+    grid-gap: 2rem;
 }
 
 .flex {
@@ -119,20 +124,19 @@ p, .text {
 }
 
 .price {
-    color: var(--color-secondary);
+    color: var(--color-text-primary);
 
-    font-size: var(--font-size-large);
-    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-extra-large);
+    font-weight: 700;
 }
 
 .old-price {
-    color: var(--color-gray);
+    color: var(--color-text-gray);
 
     font-size: var(--font-size-base);
-    font-weight: var(--font-weight-base);
+    font-weight: 400;
 
     text-decoration: line-through;
-    opacity: .5;
 }
 
 .mb-2 {
@@ -154,6 +158,8 @@ a {
 .image {
     width: 100%;
     height: 100%;
+
+    transition: transform var(--transition-base);
 }
 
 .image.image--contain {
@@ -165,9 +171,7 @@ a {
 }
 
 .header, .footer {
-    padding: 2rem 0;
-
-    background-color: var(--color-primary-light);
+    padding: 1rem 0;
 }
 
 .header__wrapper, .footer__wrapper {
@@ -188,4 +192,26 @@ a {
 
 .buttons > * {
     flex: 1;
+}
+
+.title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.title .title__text {
+    max-width: 70rem;
+}
+
+.wrapper {
+    display: flex;
+    gap: 3rem;
+
+    position: relative;
+}
+
+.products {
+    width: 100%;
 }

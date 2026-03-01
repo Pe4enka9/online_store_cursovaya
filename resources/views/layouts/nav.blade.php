@@ -1,45 +1,16 @@
-<nav>
-    @auth
-        <a
-            href="{{ route('login') }}"
-            class="{{ request()->routeIs('home') ? 'active' : '' }}"
-        >
-            Главная
-        </a>
+<nav class="nav">
+    <a href="{{ route('home') }}" class="nav__link">Каталог</a>
 
-        <a
-            href="{{ route('carts.show', auth()->user()->cart) }}"
-            class="{{ request()->routeIs(['carts.show', 'orders.*']) ? 'active' : '' }}"
-        >
-            Корзина
-        </a>
+    @auth
+        <a href="{{ route('carts.show', auth()->user()->cart) }}" class="nav__link">Корзина</a>
 
         @if(auth()->user()->is_admin)
-            <a
-                href="{{ route('admin.index') }}"
-                class="{{ request()->routeIs('admin.*') ? 'active' : '' }}"
-            >
-                Админ-панель
-            </a>
+            <a href="{{ route('admin.index') }}" class="nav__link">Админ-панель</a>
         @endif
 
         <form action="{{ route('logout') }}" method="post">
             @csrf
             <button type="submit" class="btn btn--danger">Выйти</button>
         </form>
-    @else
-        <a
-            href="{{ route('register') }}"
-            class="{{ request()->routeIs('register') ? 'active' : '' }}"
-        >
-            Регистрация
-        </a>
-
-        <a
-            href="{{ route('login') }}"
-            class="{{ request()->routeIs('login') ? 'active' : '' }}"
-        >
-            Вход
-        </a>
     @endauth
 </nav>

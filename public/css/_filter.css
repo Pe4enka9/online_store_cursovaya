@@ -1,0 +1,7 @@
+.filter {
+    height: fit-content;
+
+    position: sticky;
+    top: 8rem;
+    left: 0;
+}

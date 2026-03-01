@@ -1,0 +1,14 @@
+.sort {
+    max-width: 27rem;
+
+    margin-left: auto;
+}
+
+.sort .sort__input-wrapper {
+    flex-direction: row;
+    align-items: center;
+}
+
+.sort .sort__label {
+    color: var(--color-text-gray);
+}

@@ -1,0 +1,47 @@
+.badges {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+
+    position: absolute;
+    top: .5rem;
+    left: .5rem;
+}
+
+.badges .badges__item {
+    width: fit-content;
+
+    padding: .4rem .8rem;
+
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+
+    -webkit-border-radius: var(--border-radius-full);
+    -moz-border-radius: var(--border-radius-full);
+    border-radius: var(--border-radius-full);
+}
+
+.badges .badges__img {
+    width: 1.2rem;
+    height: 1.2rem;
+}
+
+.badges .badges__text {
+    color: var(--color-text-secondary);
+
+    font-size: var(--font-size-small);
+    font-weight: 500;
+}
+
+.badges .badges__item.badges__item--hit {
+    background-color: var(--color-orange);
+}
+
+.badges .badges__item.badges__item--new {
+    background-color: var(--color-green);
+}
+
+.badges .badges__item.badges__item--sale {
+    background-color: var(--color-red);
+}
