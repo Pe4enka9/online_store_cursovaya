@@ -1,63 +1,101 @@
 <aside class="filter">
-    <h3>Фильтры</h3>
+    <h3 class="filter__title mb-2">Фильтры</h3>
 
-    <form>
-        <div class="input-wrapper">
-            <input type="text" name="name" id="name" placeholder="Поиск по названию" value="{{ request()->name }}">
-        </div>
+    <form class="filter__form">
+        <details class="filter__details">
+            <summary class="filter__summary">Категории</summary>
 
-        <div class="input-wrapper">
-            <select name="publisher" id="publisher">
-                <option value="">Выберите издателя</option>
-                @foreach($publishers as $publisher)
-                    <option
-                        value="{{ $publisher->id }}"
-                        @selected($publisher->id == request()->publisher)
-                    >
-                        {{ $publisher->name }}
-                    </option>
+            <div class="filter__checkboxes">
+                @foreach($categories as $category)
+                    <label class="checkbox">
+                        <input type="checkbox" name="categories[]">
+                        <span class="checkbox-icon"></span>
+                        {{ $category->name }}
+                    </label>
                 @endforeach
-            </select>
-        </div>
-
-        <div class="input-wrapper">
-            <select name="age_rating" id="age_rating">
-                <option value="">Выберите возрастную категорию</option>
-                <option value="0" @selected(request()->age_rating === '0')>0+</option>
-                <option value="3" @selected(request()->age_rating == 3)>3+</option>
-                <option value="6" @selected(request()->age_rating == 6)>6+</option>
-                <option value="12" @selected(request()->age_rating == 12)>12+</option>
-                <option value="16" @selected(request()->age_rating == 16)>16+</option>
-                <option value="18" @selected(request()->age_rating == 18)>18+</option>
-            </select>
-        </div>
-
-        <div class="flex gap-1">
-            <div class="input-wrapper">
-                <input type="number" name="min_price" id="min_price" placeholder="Мин. цена"
-                       value="{{ request()->min_price }}">
             </div>
+        </details>
+
+        <hr>
+
+        <details class="filter__details">
+            <summary class="filter__summary">Издатели</summary>
+
+            <div class="filter__checkboxes">
+                @foreach($publishers as $publisher)
+                    <label class="checkbox">
+                        <input type="checkbox" name="publishers[]">
+                        <span class="checkbox-icon"></span>
+                        {{ $publisher->name }}
+                    </label>
+                @endforeach
+            </div>
+        </details>
+
+        <hr>
+
+        <details class="filter__details">
+            <summary class="filter__summary">Цена</summary>
+
+            <div class="flex ai-center gap-1">
+                <div class="input-wrapper">
+                    <input type="number" name="min_price" id="min_price" placeholder="От"
+                           value="{{ request()->min_price }}">
+                </div>
+
+                <span>—</span>
+
+                <div class="input-wrapper">
+                    <input type="number" name="max_price" id="max_price" placeholder="До"
+                           value="{{ request()->max_price }}">
+                </div>
+            </div>
+        </details>
+
+        <hr>
+
+        <details class="filter__details">
+            <summary class="filter__summary">Игроки</summary>
+
+            <div class="flex ai-center gap-1">
+                <div class="input-wrapper">
+                    <input type="number" name="players_min" id="players_min" placeholder="От"
+                           value="{{ request()->players_min }}">
+                </div>
+
+                <span>—</span>
+
+                <div class="input-wrapper">
+                    <input type="number" name="players_max" id="players_max" placeholder="До"
+                           value="{{ request()->players_max }}">
+                </div>
+            </div>
+        </details>
+
+        <hr>
+
+        <details class="filter__details">
+            <summary class="filter__summary">Возраст (от)</summary>
 
             <div class="input-wrapper">
-                <input type="number" name="max_price" id="max_price" placeholder="Макс. цена"
-                       value="{{ request()->max_price }}">
+                <input type="number" name="age_rating" id="age_rating" placeholder="Возраст"
+                       value="{{ request()->age_rating }}">
             </div>
-        </div>
+        </details>
 
-        <div class="flex gap-1">
-            <div class="input-wrapper">
-                <input type="number" name="players_min" id="players_min" placeholder="Мин. игроков"
-                       value="{{ request()->players_min }}">
-            </div>
+        <hr>
+
+        <details class="filter__details">
+            <summary class="filter__summary">Время игры (до, мин)</summary>
 
             <div class="input-wrapper">
-                <input type="number" name="players_max" id="players_max" placeholder="Макс. игроков"
-                       value="{{ request()->players_max }}">
+                <input type="number" name="play_time" id="play_time" placeholder="Минут"
+                       value="{{ request()->play_time }}">
             </div>
-        </div>
+        </details>
 
         <div class="buttons">
-            <a href="{{ route('home') }}" class="btn btn--danger">Сбросить</a>
+            {{--            <a href="{{ route('home') }}" class="btn btn--danger">Сбросить</a>--}}
             <button type="submit" class="btn btn--primary">Применить</button>
         </div>
     </form>

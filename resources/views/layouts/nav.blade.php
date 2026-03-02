@@ -2,7 +2,7 @@
     <a href="{{ route('home') }}" class="nav__link">Каталог</a>
 
     @auth
-        <a href="{{ route('carts.show', auth()->user()->cart) }}" class="nav__link">Корзина</a>
+        <a href="{{ route('orders.index') }}" class="nav__link">Мои заказы</a>
 
         @if(auth()->user()->is_admin)
             <a href="{{ route('admin.index') }}" class="nav__link">Админ-панель</a>

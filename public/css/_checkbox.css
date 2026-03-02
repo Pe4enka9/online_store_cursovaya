@@ -1,6 +1,8 @@
 .checkbox {
     display: flex;
     align-items: center;
+
+    font-weight: 500;
 }
 
 .checkbox input[type="checkbox"] {
@@ -9,17 +11,20 @@
 }
 
 .checkbox .checkbox-icon {
-    width: 2rem;
-    height: 2rem;
+    width: 1.6rem;
+    height: 1.6rem;
 
-    margin-right: 1rem;
+    margin-right: .8rem;
 
-    border: .2rem solid var(--color-border);
+    background: url("../icons/check.svg") no-repeat center / contain;
+
+    border: .1rem solid var(--color-border);
     -webkit-border-radius: .3rem;
     -moz-border-radius: .3rem;
     border-radius: .3rem;
 
     transition: background-color var(--transition-base), border-color var(--transition-base);
+    box-shadow: 0 .3rem .5rem rgba(0, 0, 0, .05);
 }
 
 .checkbox input[type="checkbox"]:checked ~ .checkbox-icon {

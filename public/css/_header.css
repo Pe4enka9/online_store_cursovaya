@@ -17,7 +17,7 @@
     gap: 1rem;
 }
 
-.header .header__cart {
+.header .header__icon {
     width: 3.6rem;
     height: 3.6rem;
 
@@ -34,11 +34,97 @@
     transition: background-color var(--transition-base);
 }
 
-.header .header__cart:hover {
+.header .header__icon:hover {
     background-color: var(--color-background-secondary);
 }
 
-.header .header__cart-img {
+.header .header__icon-img {
     width: 1.6rem;
     height: 1.6rem;
+}
+
+#profile {
+    position: relative;
+}
+
+.header .header__profile-nav {
+    width: 18rem;
+
+    background-color: var(--color-background);
+
+    border: .1rem solid var(--color-border);
+    -webkit-border-radius: var(--border-radius);
+    -moz-border-radius: var(--border-radius);
+    border-radius: var(--border-radius);
+
+    cursor: auto;
+    transform: translateY(95%);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform var(--transition-base), opacity var(--transition-base);
+
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.header .header__profile-nav.active {
+    transform: translateY(100%);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.header .header__profile-nav > * {
+    padding: 1rem 1.5rem;
+
+    border-bottom: .1rem solid var(--color-border);
+}
+
+.header .header__profile-nav > *:last-child {
+    border-bottom: none;
+}
+
+.header .header__user {
+    display: flex;
+    flex-direction: column;
+    gap: .3rem;
+}
+
+.header .header__user-name {
+    font-size: var(--font-size-base);
+    font-weight: 500;
+}
+
+.header .header__user-phone {
+    color: var(--color-text-gray);
+
+    font-size: var(--font-size-small);
+    font-weight: 400;
+}
+
+.header .header__orders,
+.header .header__logout {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.header .header__orders-img {
+    width: 1.6rem;
+    height: 1.6rem;
+}
+
+.header .header__orders-link,
+.header .header__logout-link {
+    font-size: var(--font-size-base);
+    font-weight: 400;
+}
+
+.header .header__logout-link {
+    color: var(--color-red);
+    background: none;
+
+    border: none;
+
+    cursor: pointer;
 }

@@ -35,6 +35,26 @@ body {
     background-color: var(--color-background);
 }
 
+::-webkit-scrollbar {
+    width: .8rem;
+}
+
+::-webkit-scrollbar-track {
+    background-color: var(--color-scrollbar);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--color-scrollbar-thumb);
+
+    -webkit-border-radius: var(--border-radius-full);
+    -moz-border-radius: var(--border-radius-full);
+    border-radius: var(--border-radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--color-scrollbar-thumb-hover);
+}
+
 main {
     width: var(--width);
 
@@ -57,7 +77,7 @@ h3 {
 }
 
 h4 {
-    font-size: 1.8rem;
+    font-size: var(--font-size-large);
     font-weight: 500;
 }
 
@@ -84,7 +104,7 @@ p, .text {
 }
 
 .error {
-    color: var(--color-danger);
+    color: var(--color-red);
 }
 
 .grid-wrapper {
@@ -214,4 +234,9 @@ a {
 
 .products {
     width: 100%;
+}
+
+hr {
+    border: none;
+    border-top: .1rem solid var(--color-border);
 }

@@ -1,7 +1,44 @@
 .filter {
     height: fit-content;
+    width: 30rem;
+    max-height: 85vh;
+
+    overflow-y: auto;
 
     position: sticky;
     top: 8rem;
     left: 0;
+}
+
+.filter .filter__title {
+    font-size: var(--font-size-extra-large);
+}
+
+.filter .filter__details[open] .filter__summary {
+    margin-bottom: 1rem;
+}
+
+.filter .filter__summary {
+    font-size: var(--font-size-large);
+    font-weight: 500;
+
+    cursor: pointer;
+}
+
+.filter .filter__form {
+    margin-right: 2rem;
+
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.filter .filter__checkboxes {
+    max-height: 16rem;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    overflow-y: auto;
 }

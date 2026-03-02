@@ -17,6 +17,9 @@
     --color-orange: #f59e0b;
     --color-green: #22c55e;
     --color-red: #ef4444;
+    --color-scrollbar: #f4f4f5;
+    --color-scrollbar-thumb: #ccccd0;
+    --color-scrollbar-thumb-hover: #b3b3b7;
     --width: 80%;
     --border-radius: 1rem;
     --border-radius-small: .8rem;
