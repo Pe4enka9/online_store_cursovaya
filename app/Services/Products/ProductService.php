@@ -12,8 +12,8 @@ class ProductService
     {
         $query = Product::query();
 
-        if ($request->filled('name')) {
-            $query->where('name', 'LIKE', "%$request->name%");
+        if ($request->filled('search')) {
+            $query->where('name', 'LIKE', "%$request->search%");
         }
 
         if ($request->filled('min_price')) {
@@ -24,8 +24,16 @@ class ProductService
             $query->where('price', '<=', $request->max_price);
         }
 
-        if ($request->filled('publisher')) {
-            $query->where('publisher_id', $request->publisher);
+        if ($request->filled('categories')) {
+            $categories = $request->categories;
+
+            $query->whereHas('categories', function (Builder $q) use ($categories) {
+                $q->whereIn('categories.id', $categories);
+            });
+        }
+
+        if ($request->filled('publishers')) {
+            $query->whereIn('publisher_id', $request->publishers);
         }
 
         if ($request->filled('players_min')) {
@@ -37,7 +45,11 @@ class ProductService
         }
 
         if ($request->filled('age_rating')) {
-            $query->where('age_rating', $request->age_rating);
+            $query->where('age_rating', '>=', $request->age_rating);
+        }
+
+        if ($request->filled('play_time')) {
+            $query->where('play_time', '<=', $request->play_time);
         }
 
         return $query;

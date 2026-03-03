@@ -8,7 +8,7 @@
             <div class="filter__checkboxes">
                 @foreach($categories as $category)
                     <label class="checkbox">
-                        <input type="checkbox" name="categories[]">
+                        <input type="checkbox" name="categories[]" value="{{ $category->id }}">
                         <span class="checkbox-icon"></span>
                         {{ $category->name }}
                     </label>
@@ -24,7 +24,7 @@
             <div class="filter__checkboxes">
                 @foreach($publishers as $publisher)
                     <label class="checkbox">
-                        <input type="checkbox" name="publishers[]">
+                        <input type="checkbox" name="publishers[]" value="{{ $publisher->id }}">
                         <span class="checkbox-icon"></span>
                         {{ $publisher->name }}
                     </label>
