@@ -4,11 +4,12 @@
         @include('layouts.nav')
 
         <div class="header__actions">
-            <div class="header__icon">
-                <img src="{{ asset('icons/cart.svg') }}" alt="Корзина" class="header__icon-img image image--contain">
-            </div>
-
             @auth
+                <a href="{{ route('carts.show', auth()->user()->cart) }}" class="header__icon">
+                    <img src="{{ asset('icons/cart.svg') }}" alt="Корзина"
+                         class="header__icon-img image image--contain">
+                </a>
+
                 <div class="header__icon" id="profile">
                     <img src="{{ asset('icons/profile.svg') }}" alt="Профиль"
                          class="header__icon-img image image--contain">
@@ -37,9 +38,3 @@
         </div>
     </div>
 </header>
-
-<script>
-    document.getElementById('profile').addEventListener('click', () => {
-        document.querySelector('.header__profile-nav').classList.toggle('active');
-    });
-</script>

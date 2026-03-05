@@ -1,7 +1,7 @@
 @extends('theme')
 @section('title', 'Главная')
 @section('content')
-    <div class="title mb-2 text--center">
+    <div class="title title--center title--column mb-2 text--center">
         <h1 class="title__header">Каталог настольных игр</h1>
         <p class="title__text text--large text--gray">
             Откройте для себя мир увлекательных настольных игр. У нас вы найдете игры для любого возраста и компании —

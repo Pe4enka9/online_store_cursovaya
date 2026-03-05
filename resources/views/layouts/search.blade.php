@@ -1,4 +1,4 @@
-<form class="mb-2 search">
+<form class="mb-2 search search--center search--mw">
     <div class="search__input-wrapper input-wrapper">
         <input type="search" name="search" id="search" class="search__input"
                placeholder="Поиск по названию, описанию или артикулу..." value="{{ request()->search }}">

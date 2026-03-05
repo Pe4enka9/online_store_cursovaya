@@ -18,5 +18,19 @@
 
 {{--@include('layouts.footer')--}}
 
+<script>
+    const profile = document.getElementById('profile');
+    const nav = document.querySelector('.header__profile-nav');
+
+    profile.addEventListener('click', () => {
+        nav.classList.toggle('active');
+    });
+
+    document.addEventListener('click', (e) => {
+        if (!profile.contains(e.target)) {
+            nav.classList.remove('active');
+        }
+    });
+</script>
 </body>
 </html>

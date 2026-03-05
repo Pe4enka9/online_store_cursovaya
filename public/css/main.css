@@ -216,13 +216,28 @@ a {
 
 .title {
     display: flex;
-    flex-direction: column;
-    align-items: center;
     gap: 1.5rem;
+}
+
+.title.title--column {
+    flex-direction: column;
+}
+
+.title.title--center {
+    align-items: center;
 }
 
 .title .title__text {
     max-width: 70rem;
+}
+
+.title .title__icon {
+    width: 3.2rem;
+    height: 3.2rem;
+}
+
+.title .title__header.title__header--small {
+    font-size: 3rem;
 }
 
 .wrapper {
@@ -239,4 +254,60 @@ a {
 hr {
     border: none;
     border-top: .1rem solid var(--color-border);
+}
+
+.admin-buttons {
+    padding: .3rem;
+
+    display: flex;
+
+    background-color: var(--color-background-secondary);
+
+    -webkit-border-radius: var(--border-radius);
+    -moz-border-radius: var(--border-radius);
+    border-radius: var(--border-radius);
+}
+
+.admin-buttons > * {
+    flex: 1;
+}
+
+.admin-buttons .admin-buttons__btn {
+    padding: .5em 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+
+    -webkit-border-radius: var(--border-radius);
+    -moz-border-radius: var(--border-radius);
+    border-radius: var(--border-radius);
+
+    font-size: var(--font-size-base);
+    font-weight: 500;
+}
+
+.admin-buttons .admin-buttons__btn.active {
+    background-color: var(--color-background);
+
+    box-shadow: 0 .3rem .5rem rgba(0, 0, 0, .05);
+}
+
+.admin-buttons .admin-buttons__icon {
+    width: 1.6rem;
+    height: 1.6rem;
+}
+
+.admin-search {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.admin-search .search {
+    width: 90%;
+}
+
+.admin-search .admin-search__btn {
+    width: 10%;
 }
